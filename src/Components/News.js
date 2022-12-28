@@ -17,7 +17,7 @@ export default class News extends Component {
 
   async componentDidMount() {
     this.setState({ loading: true })
-    let data = await fetch(Endpoint_Constants.topHeadlines.url + this.state.page + `&pageSize=${this.props.pageSize}`);
+    let data = await fetch(this.props.url + this.state.page + `&pageSize=${this.props.pageSize}`);
     
     let parsedData = await data.json();
     this.setState({
@@ -32,7 +32,7 @@ export default class News extends Component {
   handlePrevious = async () => {
     let num = this.state.page - 1;
     this.setState({ loading: true })
-    let data = await fetch(Endpoint_Constants.topHeadlines.url + num + `&pageSize=${this.props.pageSize}`);
+    let data = await fetch(this.props.url + num + `&pageSize=${this.props.pageSize}`);
     
     let parsedData = await data.json();
     this.setState({
@@ -50,7 +50,7 @@ export default class News extends Component {
     else {
         let num = this.state.page + 1;
         this.setState({ loading: true })
-        let data = await fetch(Endpoint_Constants.topHeadlines.url + num + `&pageSize=${this.props.pageSize}`);
+        let data = await fetch(this.props.url + num + `&pageSize=${this.props.pageSize}`);
         
         let parsedData = await data.json();
         this.setState({
@@ -65,7 +65,7 @@ export default class News extends Component {
   render() {
     return (
       <div className='container my-3'>
-        <h1>NewsBites - Top Headlines</h1>
+        <h1 className='text-center'>{this.props.title}</h1>
         {this.state.loading && <Spinner />}
         <div className='row'>
         {this.state.articles.map((item)=>{
