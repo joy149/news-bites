@@ -3,11 +3,11 @@ import React, { Component } from "react";
 export default class About extends Component {
   constructor(props) {
     super(props);
-    document.title = 'NewBites - ' + props.title;
+    document.title = "NewBites - " + props.title;
   }
   render() {
     return (
-      <div>
+      <div className="my-5">
         <div className="accordion" id="accordionPanelsStayOpenExample">
           <div className="accordion-item">
             <h2 className="accordion-header" id="panelsStayOpen-headingOne">
