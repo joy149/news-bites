@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
 
 export default class Navbar extends Component {
@@ -13,7 +12,7 @@ export default class Navbar extends Component {
   }
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             NewsBites

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Endpoint_Constants from "../Constants/endpoint-constants";
-// import PropTypes from 'prop-types'
 import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 
@@ -13,12 +12,11 @@ export default class News extends Component {
       page: 1,
       totalResults: 0,
     };
-    document.title = 'NewsBites - ' + props.title;
+    document.title = "NewsBites - " + props.title;
   }
 
   async componentDidMount() {
-    this.updateNews(this.state.page)
-    //console.log(parsedData);
+    this.updateNews(this.state.page);
   }
 
   updateNews = async (pg) => {
@@ -32,9 +30,9 @@ export default class News extends Component {
       articles: parsedData.articles,
       page: pg,
       loading: false,
-      totalResults : parsedData.totalResults
+      totalResults: parsedData.totalResults,
     });
-  }
+  };
 
   handlePrevious = async () => {
     let num = this.state.page - 1;
@@ -48,20 +46,8 @@ export default class News extends Component {
     ) {
     } else {
       let num = this.state.page + 1;
-      // this.setState({ loading: true });
-      // let data = await fetch(
-      //   this.props.url + num + `&pageSize=${this.props.pageSize}`
-      // );
-
-      // let parsedData = await data.json();
-      // this.setState({
-      //   articles: parsedData.articles,
-      //   page: this.state.page + 1,
-      //   loading: false,
-      // });
       this.updateNews(num);
     }
-    //console.log(this.state.page)
   };
 
   render() {
