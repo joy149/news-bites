@@ -61,9 +61,9 @@ export default class News extends Component {
               !this.state.loading && (
                 <div className="col-md-4" key={item.url}>
                   <NewsItem
-                    title={item.title ? item.title.slice(0, 40) : ""}
+                    title={item.title ? item.title: ""}
                     description={
-                      item.description ? item.description.slice(0, 88) : ""
+                      item.description ? item.description: ""
                     }
                     imageUrl={
                       item.urlToImage
@@ -71,6 +71,8 @@ export default class News extends Component {
                         : Endpoint_Constants.altImage.url
                     }
                     newsUrl={item.url}
+                    author={item.author}
+                    storyDate={item.publishedAt}
                   />
                 </div>
               )
